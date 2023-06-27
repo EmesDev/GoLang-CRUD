@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"os"
+
+	"github.com/joho/godotenv"
+)
 
 func main() {
-	fmt.Println("EmesDev Na Area!")
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error ao carregar .env")
+	}
+
+	fmt.Println(os.Getenv("TEST"))
 }
